@@ -3,10 +3,8 @@
 //! author : Kodie Grantham
 //! license : MIT
 //! github.com/kodie/moment-weekdaysin
-
+var moment = require('moment');
 (function() {
-  var moment = (typeof require !== 'undefined' && require !== null) && !require.amd ? require('moment') : this.moment;
-
   var days = function(start, end, weekdays, index) {
     var days = [], d = moment(start).startOf('day');
     var isIndexed = (typeof index !== 'undefined' && index !== null);
@@ -79,8 +77,5 @@
   moment.fn.weekdaysInYear = function(weekdays, index) {
     return days(moment(this).dayOfYear(1), moment(this).endOf('year'), weekdays, index);
   };
-
-  if ((typeof module !== 'undefined' && module !== null ? module.exports : void 0) != null) {
-    module.exports = moment;
-  }
 }).call(this);
+export default moment
